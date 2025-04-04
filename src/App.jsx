@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HomeComponent from "./modules/home";
 const Container = styled.div`
 display: flex;
 flex-direction: column;
@@ -19,6 +20,7 @@ function App() {
     <>
       <Container>
         <Header>Expense Tracker</Header>
+        <HomeComponent />
       </Container>
         
     </>
