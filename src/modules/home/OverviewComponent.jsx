@@ -66,7 +66,7 @@ const ExpenseBox = styled.div`
     & Span{
         font-weight: bold;
         font-size: 20px;
-        color: ${(props) => (props.isIncome ? "green" : "red")};
+        color: ${(props) => (props.$isIncome ? "green" : "red")};
     }
 
 `
@@ -115,10 +115,10 @@ const OverviewComponet = (props) =>{
             </BalanceBox>
             {isAddTxnVisible && <AddtransectionView toggleAddTxn ={toggleAddTxn} addTransections={props.addTransections}/>}
             <ExpenseContainer>
-                <ExpenseBox isIncome ={false}>
+                <ExpenseBox $isIncome ={false}>
                     Expense<span>{props.expense}</span>
                 </ExpenseBox>
-                <ExpenseBox isIncome ={true}>
+                <ExpenseBox $isIncome ={true}>
                     Income<span>{props.income}</span>
                 </ExpenseBox>
 
