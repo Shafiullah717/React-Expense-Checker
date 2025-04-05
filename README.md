@@ -1,12 +1,43 @@
-# Expense Checker
+# 💸 React Expense Checker
 
-A web application created with React JS.
+A simple and elegant Expense Tracking App built using **React.js** and **Styled-Components**. This app allows users to keep track of their monthly income and expenses with a clean and user-friendly interface.
 
-Currently, two official plugins are available:
+![App UI](./public/Expense%20Checker%20Ui.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+👉 [Check out the live app here](https://react-expense-checker-by-shafiullah.vercel.app/)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚧 Project Status
+
+🚀 This project is currently **under development**.
+
+## ✨ Features
+
+- ✅ Add monthly **income** and **expenses**
+- 📊 View updated **total balance**
+- 📁 Organized and easy-to-use interface
+
+More features coming soon:
+- 📝 Edit/Delete entries
+- 🔍 Filter by category or date
+- 📈 Data visualization (charts)
+
+## 🛠 Tech Stack
+
+- **React.js** – UI development
+- **Styled-Components** – Component-level styling
+
+## 📸 UI Preview
+
+> Here's a simple snapshot of the UI  
+> *(Make sure the image file is located in the correct folder and referenced properly)*
+
+![React Expense Checker Preview](./public/Expense%20Checker%20Ui.png)
+
+## 🚀 Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/react-expense-checker.git
+
