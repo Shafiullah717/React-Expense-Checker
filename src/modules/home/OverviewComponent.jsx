@@ -49,6 +49,27 @@ const RadioBtn = styled.div`
     width: 100%;
     align-items: center;
 `
+const ExpenseContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 20px;
+`
+const ExpenseBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    border: 1px solid #e6e8e9;
+    padding: 15px 20px;
+    width: 135px;
+    font-size: 14px;
+    & Span{
+        font-weight: bold;
+        font-size: 20px;
+        color: ${(props) => (props.isIncome ? "green" : "red")};
+    }
+
+`
 const AddtransectionView = (props) =>{
     const [amout, setAmout] = useState();
     const [desc, setDesc] = useState();
@@ -89,10 +110,19 @@ const OverviewComponet = (props) =>{
     return(
         <Container>
             <BalanceBox>
-                Balance: $5000
+                Balance: {props.income - props.expense}
                 <AddTransection onClick={() => toggleAddTxn(!isAddTxnVisible)}>{isAddTxnVisible ? "Cancel" : "Add"}</AddTransection>
             </BalanceBox>
             {isAddTxnVisible && <AddtransectionView toggleAddTxn ={toggleAddTxn} addTransections={props.addTransections}/>}
+            <ExpenseContainer>
+                <ExpenseBox isIncome ={false}>
+                    Expense<span>{props.expense}</span>
+                </ExpenseBox>
+                <ExpenseBox isIncome ={true}>
+                    Income<span>{props.income}</span>
+                </ExpenseBox>
+
+            </ExpenseContainer>
         </Container>
     )
 }

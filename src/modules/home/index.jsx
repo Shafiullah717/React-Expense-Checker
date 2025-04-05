@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import OverviewComponet from "./OverviewComponent"
 import TransectionComponent from "./TransectionComponent"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 const Container = styled.div`
 display: flex;
 flex-direction: column;
@@ -13,6 +13,8 @@ width: 350px;
 
 const HomeComponent =(props) =>{
     const [transections, setTransections] = useState([])
+    const [expense , setexpense] = useState(0)
+    const [income, setincome] = useState(0)
 
     const addTransections = (payload) =>{
         const transectionsArray=[...transections];
@@ -20,10 +22,26 @@ const HomeComponent =(props) =>{
         setTransections(transectionsArray)
 
     }
+    const CalculateBalance =()=>{
+        let exp = 0;
+        let inc = 0;
+        transections.map((payload) =>{
+            payload.type === "EXPENSE"
+              ? (exp = exp + payload.amout)
+              : (inc = inc + payload.amout);
+        })
+        setexpense(exp);
+        setincome(inc)
+    }
+    useEffect(() => CalculateBalance(),[transections]);
 
     return(
-        <Container>HomeComponent
-            <OverviewComponet addTransections={addTransections}/>
+        <Container>
+            <OverviewComponet 
+            addTransections={addTransections} 
+            expense = {expense}
+            income = {income}
+            />
             <TransectionComponent  transections={transections}/>
         </Container>
     )
