@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 const Container = styled.div`
     display: flex;
@@ -32,6 +33,7 @@ const Cell = styled.div`
     
 `
 const TransectionCell =(props) =>{
+
     return(
         <Cell isExpense={props.payload?.type === "EXPENSE"}>
             <span>{props.payload.desc}</span>
@@ -42,12 +44,28 @@ const TransectionCell =(props) =>{
 
 }
 const TransectionComponent = (props) =>{
+    const [searchText, updateSearchText] = useState("")
+    const [filteredTransaction, updateTxn] = useState(props.transections)
+    const filterdata = (searchText) =>{
+        if(!searchText || !searchText.trim().length){
+            updateTxn(props.transections);
+            return
+        }
+        let txn = [...props.transections];
+        txn = txn.filter((payload) =>payload.desc.toLowerCase().includes(searchText.toLowerCase().trim()));
+        updateTxn(txn)
+    }
+    useEffect(() =>filterdata(searchText), [props.transections])
     return(
         <Container>
             Transection
-            <input placeholder="Serach"/>
-            {props.transections?.length
-            ? props.transections.map((payload) =>(
+            <input placeholder="Serach" 
+            value={searchText} 
+            onChange={(e) => {updateSearchText(e.target.value)
+            filterdata(e.target.value)    
+            }}/>
+            {filteredTransaction?.length
+            ? filteredTransaction.map((payload) =>(
               <TransectionCell payload={payload}/>
               ))
             : ""}
