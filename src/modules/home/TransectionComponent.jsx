@@ -58,7 +58,7 @@ const TransectionComponent = (props) =>{
     useEffect(() =>filterdata(searchText), [props.transections])
     return(
         <Container>
-            Transection
+            Transaction
             <input placeholder="Serach" 
             value={searchText} 
             onChange={(e) => {updateSearchText(e.target.value)
